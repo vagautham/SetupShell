@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC351C2416552DA80018BE14 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = AC351C2316552DA80018BE14 /* Log.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AC351C2716552DEE0018BE14 /* UIDevice+Machine.m in Sources */ = {isa = PBXBuildFile; fileRef = AC351C2616552DEE0018BE14 /* UIDevice+Machine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		ACD0C53B1653828B007AEF37 /* WebViewController-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0C53A1653828B007AEF37 /* WebViewController-iPhone.xib */; };
 		ACD7AF1E164D02B10089EECE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD7AF1D164D02B10089EECE /* UIKit.framework */; };
 		ACD7AF20164D02B10089EECE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD7AF1F164D02B10089EECE /* Foundation.framework */; };
@@ -31,8 +33,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC351C2216552DA80018BE14 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		AC351C2316552DA80018BE14 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
+		AC351C2516552DEE0018BE14 /* UIDevice+Machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Machine.h"; sourceTree = "<group>"; };
+		AC351C2616552DEE0018BE14 /* UIDevice+Machine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Machine.m"; sourceTree = "<group>"; };
 		ACD0C53A1653828B007AEF37 /* WebViewController-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "WebViewController-iPhone.xib"; sourceTree = "<group>"; };
-		ACD7AF19164D02B10089EECE /* Shell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD7AF19164D02B10089EECE /* SetupShell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetupShell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD7AF1D164D02B10089EECE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACD7AF1F164D02B10089EECE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACD7AF21164D02B10089EECE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				ACD7AF23164D02B10089EECE /* Shell */,
+				ACD7AF24164D02B10089EECE /* Supporting Files */,
+				ACD7AF43164D03460089EECE /* Images */,
 				ACD7AF1C164D02B10089EECE /* Frameworks */,
 				ACD7AF1A164D02B10089EECE /* Products */,
 			);
@@ -88,7 +96,7 @@
 		ACD7AF1A164D02B10089EECE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACD7AF19164D02B10089EECE /* Shell.app */,
+				ACD7AF19164D02B10089EECE /* SetupShell.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,11 +114,14 @@
 		ACD7AF23164D02B10089EECE /* Shell */ = {
 			isa = PBXGroup;
 			children = (
+				AC351C2516552DEE0018BE14 /* UIDevice+Machine.h */,
+				AC351C2616552DEE0018BE14 /* UIDevice+Machine.m */,
+				AC351C2216552DA80018BE14 /* Log.h */,
+				AC351C2316552DA80018BE14 /* Log.m */,
 				ACD7AF86164D496B0089EECE /* testhtml2.html */,
 				ACD7AF84164D43330089EECE /* testhtml.html */,
 				ACD7AF79164D2E9C0089EECE /* iToast.m */,
 				ACD7AF76164D2C160089EECE /* iToast.h */,
-				ACD7AF43164D03460089EECE /* Images */,
 				ACD7AF6C164D16830089EECE /* Singleton.h */,
 				ACD7AF6D164D16830089EECE /* Singleton.m */,
 				ACD7AF2C164D02B10089EECE /* AppDelegate.h */,
@@ -119,7 +130,6 @@
 				ACD7AF36164D02B20089EECE /* ViewController.m */,
 				ACD7AF38164D02B20089EECE /* ViewController_iPhone.xib */,
 				ACD7AF3B164D02B20089EECE /* ViewController_iPad.xib */,
-				ACD7AF24164D02B10089EECE /* Supporting Files */,
 				ACD7AF63164D06500089EECE /* WebViewController.h */,
 				ACD7AF64164D06500089EECE /* WebViewController.m */,
 				ACD7AF65164D06500089EECE /* WebViewController.xib */,
@@ -140,6 +150,7 @@
 				ACD7AF33164D02B20089EECE /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = Shell;
 			sourceTree = "<group>";
 		};
 		ACD7AF43164D03460089EECE /* Images */ = {
@@ -149,6 +160,7 @@
 				ACD7AF44164D03510089EECE /* Load.png */,
 			);
 			name = Images;
+			path = Shell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +180,7 @@
 			);
 			name = Shell;
 			productName = Shell;
-			productReference = ACD7AF19164D02B10089EECE /* Shell.app */;
+			productReference = ACD7AF19164D02B10089EECE /* SetupShell.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,6 +242,8 @@
 				ACD7AF66164D06500089EECE /* WebViewController.m in Sources */,
 				ACD7AF6E164D16830089EECE /* Singleton.m in Sources */,
 				ACD7AF7A164D2E9C0089EECE /* iToast.m in Sources */,
+				AC351C2416552DA80018BE14 /* Log.m in Sources */,
+				AC351C2716552DEE0018BE14 /* UIDevice+Machine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +341,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Shell\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SetupShell;
 				PROVISIONING_PROFILE = "259F1D4F-54B6-4744-8F06-7FCA7036AD8E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "259F1D4F-54B6-4744-8F06-7FCA7036AD8E";
 				WRAPPER_EXTENSION = app;
@@ -347,7 +361,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Shell\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SetupShell;
 				PROVISIONING_PROFILE = "259F1D4F-54B6-4744-8F06-7FCA7036AD8E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "259F1D4F-54B6-4744-8F06-7FCA7036AD8E";
 				WRAPPER_EXTENSION = app;

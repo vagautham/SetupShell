@@ -47,7 +47,12 @@
     
     _URL = [SingletonInstance getCurrentURL];
     _Form = [SingletonInstance getCurrentForm];
-    myURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",_URL,_Form]];
+    
+    if ([_Form length] <= 0)
+        myURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",_URL]];
+    else
+        myURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",_URL,_Form]];
+    
     // myURL = [NSURL URLWithString:@"http://en.wikipedia.org/w/index.php?title=Main_page&action=raw"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:myURL];
     mWebView.delegate = self;
@@ -60,24 +65,33 @@
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"page is loading");
+    NSString *LogString =[NSString stringWithFormat:@"Loading Page"];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    
     NSString *_URL,*_Form;
     
     _URL = [SingletonInstance getCurrentURL];
     _Form = [SingletonInstance getCurrentForm];
-    _URL = [NSString stringWithFormat:@"Loading Page... \n%@?%@",_URL,_Form];
+    
+    if ([_Form length] <= 0)
+        _URL = [NSString stringWithFormat:@"%@",_URL];
+    else
+        _URL = [NSString stringWithFormat:@"%@?%@",_URL,_Form];
+    
 
     [[[iToast makeText:_URL interface:TRUE] setDuration:2] show];
-
+    
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"finished loading");
+    NSString *LogString =[NSString stringWithFormat:@"Page Loaded"];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    NSLog(@"page failed to load with error:%@",error);
+    NSString *LogString =[NSString stringWithFormat:@"Page Failed to load with Error:%@",error];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
     [[[iToast makeText:@"Page Failed to Load, taking back to Main Screen" interface:TRUE] setDuration:3] show];
     [self.view setUserInteractionEnabled:FALSE];
     [self performSelector:@selector(dismisstheView) withObject:nil afterDelay:2];
@@ -88,16 +102,28 @@
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"page shouldStartLoadWithRequest:%@ and navigationType:%d absoluteURL:%@ ",request,navigationType,[[request URL] absoluteString]);
     
-    NSLog(@"scheme: %@", [[request URL] scheme]);
-    NSLog(@"host: %@", [[request URL] host]);
-    NSLog(@"port: %@", [[request URL] port]);
-    NSLog(@"path: %@", [[request URL] path]);
-    NSLog(@"path components: %@", [[request URL] pathComponents]);
-    NSLog(@"parameterString: %@", [[request URL] parameterString]);
-    NSLog(@"query: %@", [[request URL] query]);
-    NSLog(@"fragment: %@", [[request URL] fragment]);
+    NSString *LogString =[NSString stringWithFormat:@"Page Should Start Loading with Request:%@ and absoluteURL:%@",request,[[request URL] absoluteString]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    
+    LogString =[NSString stringWithFormat:@"Scheme: %@", [[request URL] scheme]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    
+    LogString =[NSString stringWithFormat:@"host: %@", [[request URL] host]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    LogString =[NSString stringWithFormat:@"port: %@", [[request URL] port]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    LogString =[NSString stringWithFormat:@"path: %@", [[request URL] path]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    LogString =[NSString stringWithFormat:@"path components: %@", [[request URL] pathComponents]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    LogString =[NSString stringWithFormat:@"parameterString: %@", [[request URL] parameterString]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    LogString =[NSString stringWithFormat:@"query: %@", [[request URL] query]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    LogString =[NSString stringWithFormat:@"fragment: %@", [[request URL] fragment]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    
     [[[iToast makeText:@"Navigating Pages" interface:TRUE] setDuration:2] show];
     //Parse and find action "exit"
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -106,7 +132,10 @@
         if([elts count] < 2) continue;
         [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
     }
-    NSLog(@"Params for action:%@",[params objectForKey:@"action"]);
+    
+    LogString =[NSString stringWithFormat:@"Params for action:%@",[params objectForKey:@"action"]];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+    
     NSString *actionString =  [params objectForKey:@"action"];
     NSRange textRange;
     textRange =[actionString rangeOfString:@"exit"];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Singleton.h"
+#import "Log.h"
 
 @class ViewController;
 

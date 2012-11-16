@@ -20,8 +20,9 @@
     NSLocale *locale = [NSLocale currentLocale];
     NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
     
-    NSLog(@"language :%@, locale :%@, countryCode:%@",language, locale,countryCode);
-    
+    NSString *LogString =[NSString stringWithFormat:@"language :%@, locale :%@, countryCode:%@",language, locale,countryCode];
+    [Log debug:@"NativeAppLog" class:NSStringFromClass([self class]) selector:NSStringFromSelector(_cmd) message:LogString];
+
     [SingletonInstance setLangauge:language andCountryCode:countryCode];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
