@@ -1,11 +1,10 @@
 //
 //  Log.h
-//  Seurat
+//  Shell
 //
-//  Created by Arun on 1/6/12.
-//  Copyright (c) 2012 Logitech. All rights reserved.
+//  Created by Gautham on 09/11/12.
+//  Copyright (c) 2012 Gautham. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 
 @interface Log : NSObject

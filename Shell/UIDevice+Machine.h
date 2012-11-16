@@ -1,9 +1,9 @@
 //
 //  UIDevice+Machine.h
-//  Seurat
+//  Shell
 //
-//  Created by Arun on 5/7/12.
-//  Copyright (c) 2012 Logitech. All rights reserved.
+//  Created by Gautham on 09/11/12.
+//  Copyright (c) 2012 Gautham. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

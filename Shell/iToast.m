@@ -1,9 +1,10 @@
 //
 //  iToast.m
 //  iToast
+//  Shell
 //
-//  Created by Diallo Mamadou Bobo on 2/10/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Gautham on 09/11/12.
+//  Copyright (c) 2012 Gautham. All rights reserved.
 //
 
 #import "iToast.h"
